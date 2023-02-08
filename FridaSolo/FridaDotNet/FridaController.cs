@@ -39,6 +39,7 @@ IsPause={IsPause};
         public uint PID;
 
         protected bool _IsHasScript = false;
+        protected int _ScriptPostID = 0;
 
         public FridaController(FridaArguments args)
         {
@@ -48,6 +49,20 @@ IsPause={IsPause};
                 throw new ArgumentException($"Can not get device by ID={args.DeviceID}");
             }
 
+            // 考虑到文件读写需要时间，所以先把文件加载完
+            string FinalScript = "";
+            if (!string.IsNullOrEmpty(args.ScriptPath))
+            {
+#if DEBUG
+                Console.WriteLine($"Load script {args.ScriptPath}");
+#endif
+                var loader = FridaScriptLoader.LoadScript(args.ScriptPath);
+                var fileContext = loader.FinalText;
+                FinalScript = $"{REPLDefinition}{fileContext}";
+
+                _IsHasScript = true;
+            }
+
             if (args.IsNeedSpawn)
             {
                 PID = TargetDevice.Spawn(args.TargetName, null, null, null, null);
@@ -55,21 +70,9 @@ IsPause={IsPause};
 
             TargetSession = TargetDevice.Attach(PID);
 
-            if (!string.IsNullOrEmpty(args.ScriptPath))
-            {
-#if DEBUG
-                Console.WriteLine($"Load script {args.ScriptPath}");
-#endif
-                var fileContext = File.ReadAllText(args.ScriptPath);
-
-                var js = $"{REPLDefinition}{fileContext}";
-
-                TargetScript = TargetSession.CreateScript(js);
-                _IsHasScript = true;
-            }
-
             if (_IsHasScript)
             {
+                TargetScript = TargetSession.CreateScript(FinalScript);
                 TargetScript.Message += new ScriptMessageHandler(ScriptMessage);
                 TargetScript.Load();
             }
@@ -99,7 +102,8 @@ IsPause={IsPause};
             {
                 return;
             }
-            var fridaEvalJS = $@"[""frida:rpc"",1,""call"",""fridaEvaluate"",[""{js}""]]";
+            _ScriptPostID++;
+            var fridaEvalJS = $@"[""frida:rpc"",{_ScriptPostID},""call"",""fridaEvaluate"",[""{js}""]]";
             PostJson(fridaEvalJS);
         }
 

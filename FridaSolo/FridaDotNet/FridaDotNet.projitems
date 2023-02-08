@@ -12,5 +12,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)FridaController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FridaJavaScriptHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FridaManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FridaScriptLoader.cs" />
   </ItemGroup>
 </Project>
