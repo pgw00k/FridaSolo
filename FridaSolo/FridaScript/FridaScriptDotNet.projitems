@@ -12,6 +12,8 @@
     <None Include="$(MSBuildThisFileDirectory)FridaREPL.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="$(MSBuildThisFileDirectory)FridaTest.js" />
+    <None Include="$(MSBuildThisFileDirectory)FridaTest.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "FridaDotNet", "FridaDotNet\FridaDotNet.shproj", "{48305E61-9142-4910-B7B1-3000DDDC0649}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FridaWPF", "FridaWPF\FridaWPF.csproj", "{B9E50962-AB7A-484E-9BC8-F2CA30962B2B}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "FridaScriptDotNet", "FridaScript\FridaScriptDotNet.shproj", "{A780B624-5312-4E42-83A6-485C99369F2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FridaCmd", "FridaCmdDotNet\FridaCmd.csproj", "{5A6AE89C-6BCA-416E-8B2C-9203D37D446C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "frida-clr-wings", "..\frida-clr\frida-clr-wings.vcxproj", "{48AFFAE0-8789-44A6-8756-BC9EA344500C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9E50962-AB7A-484E-9BC8-F2CA30962B2B}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{B9E50962-AB7A-484E-9BC8-F2CA30962B2B}.Debug|Any CPU.Build.0 = Debug|x64
+		{B9E50962-AB7A-484E-9BC8-F2CA30962B2B}.Debug|x64.ActiveCfg = Debug|x64
+		{B9E50962-AB7A-484E-9BC8-F2CA30962B2B}.Debug|x64.Build.0 = Debug|x64
+		{B9E50962-AB7A-484E-9BC8-F2CA30962B2B}.Debug|x86.ActiveCfg = Debug|x64
+		{B9E50962-AB7A-484E-9BC8-F2CA30962B2B}.Debug|x86.Build.0 = Debug|x64
+		{B9E50962-AB7A-484E-9BC8-F2CA30962B2B}.Release|Any CPU.ActiveCfg = Release|x64
+		{B9E50962-AB7A-484E-9BC8-F2CA30962B2B}.Release|Any CPU.Build.0 = Release|x64
+		{B9E50962-AB7A-484E-9BC8-F2CA30962B2B}.Release|x64.ActiveCfg = Release|x64
+		{B9E50962-AB7A-484E-9BC8-F2CA30962B2B}.Release|x64.Build.0 = Release|x64
+		{B9E50962-AB7A-484E-9BC8-F2CA30962B2B}.Release|x86.ActiveCfg = Release|x64
+		{B9E50962-AB7A-484E-9BC8-F2CA30962B2B}.Release|x86.Build.0 = Release|x64
+		{5A6AE89C-6BCA-416E-8B2C-9203D37D446C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A6AE89C-6BCA-416E-8B2C-9203D37D446C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A6AE89C-6BCA-416E-8B2C-9203D37D446C}.Debug|x64.ActiveCfg = Debug|x64
+		{5A6AE89C-6BCA-416E-8B2C-9203D37D446C}.Debug|x64.Build.0 = Debug|x64
+		{5A6AE89C-6BCA-416E-8B2C-9203D37D446C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5A6AE89C-6BCA-416E-8B2C-9203D37D446C}.Debug|x86.Build.0 = Debug|Any CPU
+		{5A6AE89C-6BCA-416E-8B2C-9203D37D446C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A6AE89C-6BCA-416E-8B2C-9203D37D446C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A6AE89C-6BCA-416E-8B2C-9203D37D446C}.Release|x64.ActiveCfg = Release|x64
+		{5A6AE89C-6BCA-416E-8B2C-9203D37D446C}.Release|x64.Build.0 = Release|x64
+		{5A6AE89C-6BCA-416E-8B2C-9203D37D446C}.Release|x86.ActiveCfg = Release|Any CPU
+		{5A6AE89C-6BCA-416E-8B2C-9203D37D446C}.Release|x86.Build.0 = Release|Any CPU
+		{48AFFAE0-8789-44A6-8756-BC9EA344500C}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{48AFFAE0-8789-44A6-8756-BC9EA344500C}.Debug|Any CPU.Build.0 = Debug|x64
+		{48AFFAE0-8789-44A6-8756-BC9EA344500C}.Debug|x64.ActiveCfg = Debug|x64
+		{48AFFAE0-8789-44A6-8756-BC9EA344500C}.Debug|x64.Build.0 = Debug|x64
+		{48AFFAE0-8789-44A6-8756-BC9EA344500C}.Debug|x86.ActiveCfg = Debug|Win32
+		{48AFFAE0-8789-44A6-8756-BC9EA344500C}.Debug|x86.Build.0 = Debug|Win32
+		{48AFFAE0-8789-44A6-8756-BC9EA344500C}.Release|Any CPU.ActiveCfg = Release|x64
+		{48AFFAE0-8789-44A6-8756-BC9EA344500C}.Release|Any CPU.Build.0 = Release|x64
+		{48AFFAE0-8789-44A6-8756-BC9EA344500C}.Release|x64.ActiveCfg = Release|x64
+		{48AFFAE0-8789-44A6-8756-BC9EA344500C}.Release|x64.Build.0 = Release|x64
+		{48AFFAE0-8789-44A6-8756-BC9EA344500C}.Release|x86.ActiveCfg = Release|Win32
+		{48AFFAE0-8789-44A6-8756-BC9EA344500C}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4A577A8C-26BD-49A5-8378-1E47413526F7}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		FridaDotNet\FridaDotNet.projitems*{48305e61-9142-4910-b7b1-3000dddc0649}*SharedItemsImports = 13
+		FridaDotNet\FridaDotNet.projitems*{5a6ae89c-6bca-416e-8b2c-9203d37d446c}*SharedItemsImports = 4
+		FridaScript\FridaScriptDotNet.projitems*{5a6ae89c-6bca-416e-8b2c-9203d37d446c}*SharedItemsImports = 4
+		..\WingsCSharp\WingsCSharp\Common\Common.projitems*{5a6ae89c-6bca-416e-8b2c-9203d37d446c}*SharedItemsImports = 4
+		..\WingsCSharp\WingsCSharp\ConsoleHelper\ConsoleHelper.projitems*{5a6ae89c-6bca-416e-8b2c-9203d37d446c}*SharedItemsImports = 4
+		FridaScript\FridaScriptDotNet.projitems*{a780b624-5312-4e42-83a6-485c99369f2c}*SharedItemsImports = 13
+		FridaDotNet\FridaDotNet.projitems*{b9e50962-ab7a-484e-9bc8-f2ca30962b2b}*SharedItemsImports = 4
+		FridaScript\FridaScriptDotNet.projitems*{b9e50962-ab7a-484e-9bc8-f2ca30962b2b}*SharedItemsImports = 4
+		..\WingsCSharp\WingsCSharp\Common\Common.projitems*{b9e50962-ab7a-484e-9bc8-f2ca30962b2b}*SharedItemsImports = 4
+		..\WingsCSharp\WingsCSharp\ConsoleHelper\ConsoleHelper.projitems*{b9e50962-ab7a-484e-9bc8-f2ca30962b2b}*SharedItemsImports = 4
+	EndGlobalSection
+EndGlobal

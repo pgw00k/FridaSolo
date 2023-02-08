@@ -5,12 +5,6 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FridaCmd", "FridaCmd\FridaCmd.vcxproj", "{7FC58085-434D-4217-BD51-A8374C853118}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "FridaDotNet", "FridaDotNet\FridaDotNet.shproj", "{48305E61-9142-4910-B7B1-3000DDDC0649}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FridaWPF", "FridaWPF\FridaWPF.csproj", "{B9E50962-AB7A-484E-9BC8-F2CA30962B2B}"
-EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "FridaScriptDotNet", "FridaScript\FridaScriptDotNet.shproj", "{A780B624-5312-4E42-83A6-485C99369F2C}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FridaScriptC", "FridaScript\FridaScriptC.vcxitems", "{83DD81B5-6E5F-45ED-8E57-8A79A7D0EFCB}"
 EndProject
 Global
@@ -23,10 +17,6 @@ Global
 		{7FC58085-434D-4217-BD51-A8374C853118}.Debug|x64.Build.0 = Debug|x64
 		{7FC58085-434D-4217-BD51-A8374C853118}.Release|x64.ActiveCfg = Release|x64
 		{7FC58085-434D-4217-BD51-A8374C853118}.Release|x64.Build.0 = Release|x64
-		{B9E50962-AB7A-484E-9BC8-F2CA30962B2B}.Debug|x64.ActiveCfg = Debug|x64
-		{B9E50962-AB7A-484E-9BC8-F2CA30962B2B}.Debug|x64.Build.0 = Debug|x64
-		{B9E50962-AB7A-484E-9BC8-F2CA30962B2B}.Release|x64.ActiveCfg = Release|x64
-		{B9E50962-AB7A-484E-9BC8-F2CA30962B2B}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,13 +25,7 @@ Global
 		SolutionGuid = {4A577A8C-26BD-49A5-8378-1E47413526F7}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		FridaDotNet\FridaDotNet.projitems*{48305e61-9142-4910-b7b1-3000dddc0649}*SharedItemsImports = 13
 		FridaScript\FridaScriptC.vcxitems*{7fc58085-434d-4217-bd51-a8374c853118}*SharedItemsImports = 4
 		FridaScript\FridaScriptC.vcxitems*{83dd81b5-6e5f-45ed-8e57-8a79a7d0efcb}*SharedItemsImports = 9
-		FridaScript\FridaScriptDotNet.projitems*{a780b624-5312-4e42-83a6-485c99369f2c}*SharedItemsImports = 13
-		FridaDotNet\FridaDotNet.projitems*{b9e50962-ab7a-484e-9bc8-f2ca30962b2b}*SharedItemsImports = 4
-		FridaScript\FridaScriptDotNet.projitems*{b9e50962-ab7a-484e-9bc8-f2ca30962b2b}*SharedItemsImports = 4
-		..\WingsCSharp\WingsCSharp\Common\Common.projitems*{b9e50962-ab7a-484e-9bc8-f2ca30962b2b}*SharedItemsImports = 4
-		..\WingsCSharp\WingsCSharp\ConsoleHelper\ConsoleHelper.projitems*{b9e50962-ab7a-484e-9bc8-f2ca30962b2b}*SharedItemsImports = 4
 	EndGlobalSection
 EndGlobal

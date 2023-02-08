@@ -193,18 +193,17 @@ namespace FridaWPF
 
         private void btnScriptRun_Click(object sender, RoutedEventArgs e)
         {
-            if (_FridaController != null)
+            if (_FridaController != null && !string.IsNullOrEmpty(tbJSScript.Text))
             {
-                var fridaEvalJS = $@"[""frida:rpc"",1,""call"",""fridaEvaluate"",[""{tbJSScript.Text}""]]";
-                _FridaController.RunScript(fridaEvalJS);
+                _FridaController.RunScript(tbJSScript.Text);
             }
         }
 
         private void btnScriptPost_Click(object sender, RoutedEventArgs e)
         {
-            if (_FridaController != null)
+            if (_FridaController != null && !string.IsNullOrEmpty(tbJSScript.Text))
             {
-                _FridaController.RunScript(tbJSScript.Text);
+                _FridaController.PostJson(tbJSScript.Text);
             }
         }
     }

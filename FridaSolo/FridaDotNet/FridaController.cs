@@ -72,10 +72,6 @@ IsPause={IsPause};
             {
                 TargetScript.Message += new ScriptMessageHandler(ScriptMessage);
                 TargetScript.Load();
-
-                //var initJS = @"[""frida: rpc"", 1, ""call"", ""init"", [""early"", {}]]";
-
-                //TargetScript.Post(initJS);
             }
 
             if (!args.IsPause && args.IsNeedSpawn)
@@ -90,7 +86,8 @@ IsPause={IsPause};
         {
             var message = e.Message;
             Console.WriteLine($"Message from Script: {message}");
-            if(e.Data!=null)
+            //Console.WriteLine($"Message from Script: {e.PayLoad}");
+            if (e.Data!=null)
             {
                 Console.WriteLine($"Data: {String.Join(",", e.Data)}");
             }        
@@ -98,10 +95,19 @@ IsPause={IsPause};
 
         public virtual void RunScript(string js)
         {
-            if (TargetScript!= null)
+            if(string.IsNullOrEmpty(js))
             {
-                Console.WriteLine($"RunScript {js}");
-                TargetScript.Post(js);     
+                return;
+            }
+            var fridaEvalJS = $@"[""frida:rpc"",1,""call"",""fridaEvaluate"",[""{js}""]]";
+            PostJson(fridaEvalJS);
+        }
+
+        public virtual void PostJson(string js)
+        {
+            if (TargetScript != null)
+            {
+                TargetScript.Post(js);
             }
         }
     }

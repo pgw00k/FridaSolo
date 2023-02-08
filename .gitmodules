@@ -1,3 +1,6 @@
 [submodule "WingsCSharp"]
 	path = WingsCSharp
 	url = git@github.com:pgw00k/WingsCSharp.git
+[submodule "frida-clr"]
+	path = frida-clr
+	url = git@github.com:pgw00k/frida-clr.git
