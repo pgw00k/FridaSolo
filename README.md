@@ -25,5 +25,5 @@
 > WindowsBase 主要是用来处理GUI界面的一些刷新内容的，其实命令行理论上是可以去掉的，但是这样的话要编译CLR的源码，这里懒得改了。
 
 # 参考
-主要参考 [frida-clr](https://github.com/frida/frida-clr/) 中的 HelloFrida 来进行编写。
-脚本部分参考了 [frida-netstandard](https://github.com/lenacloud/frida-netstandard) 这个库。
+- 主要参考 [frida-clr](https://github.com/frida/frida-clr/) 中的 HelloFrida 来进行编写。
+- 脚本部分参考了 [frida-netstandard](https://github.com/lenacloud/frida-netstandard) 这个库。
