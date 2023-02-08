@@ -1,0 +1,126 @@
+﻿<Window x:Class="FridaWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FridaWPF"
+        mc:Ignorable="d"
+        Title="Frida GUI" Height="450" Width="800" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <DataTemplate x:Key="DeviceTemplate">
+            <StackPanel Orientation="Horizontal">
+                <!--<Image Source="{Binding Icon}"
+                       Width="{Binding Icon.Width}"
+                       Height="{Binding Icon.Height}"/>-->
+                <TextBlock Text="{Binding Name}"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="ProcessTemplate">
+            <StackPanel Orientation="Horizontal">
+                <!--<Image Source="{Binding Icons[0]}"
+                       Width="{Binding Icons[0].Width}"
+                       Height="{Binding Icons[0].Height}"/>-->
+                <TextBlock Text="{Binding Name}"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+        <Thickness x:Key="BaseButtonMargin">2.5,2.5,2.5,2.5</Thickness>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="6*"/>
+            </Grid.RowDefinitions>
+
+            <DockPanel  Grid.Row="0" >
+
+                <UniformGrid DockPanel.Dock="Bottom">
+                    <Button x:Name="btnRefreshDeviceList" Content="Refresh Device" Click="btnRefreshDeviceList_Click" Margin="{DynamicResource BaseButtonMargin}"/>
+                    <Button x:Name="btnRefreshProcessList" Content="Refresh Process" Click="btnRefreshProcessList_Click" Margin="{DynamicResource BaseButtonMargin}" />
+                </UniformGrid>
+                <ListView x:Name="lsvDevice" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="lsvDevice_SelectionChanged" ItemsSource="{Binding Devices}" ItemTemplate="{StaticResource DeviceTemplate}">
+                </ListView>
+
+            </DockPanel>
+
+            <DockPanel  Grid.Row="1" >
+                <TextBox x:Name="tbSearchBar" TextWrapping="NoWrap" d:Text="Search Key Word" DockPanel.Dock="Top"/>
+                <ListView x:Name="lsvProcess" d:ItemsSource="{d:SampleData ItemCount=5}" ItemTemplate="{DynamicResource ProcessTemplate}" ItemsSource="{Binding Processes}" SelectionChanged="lsvProcess_SelectionChanged">
+                </ListView>
+            </DockPanel>
+
+
+
+        </Grid>
+        
+        
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2.5*"/>
+                <RowDefinition Height="7.5*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Vertical" Grid.Row="0" Margin="10,0,10,0">
+
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <TextBox x:Name="tbScriptPath" TextWrapping="NoWrap" d:Text="Script Path" Width="170"/>
+                    <Button x:Name="btnBrowserSciptFile" Content="Browser" Click="btnBrowserSciptFile_Click" Margin="10,0,0,0" MinWidth="55"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <TextBox x:Name="tbTargetName" TextWrapping="NoWrap" d:Text="Target Name" Width="170"/>
+                    <Button x:Name="btnSpawn" Content="Spawn" Click="btnSpawn_Click"  Margin="10,0,0,0" MinWidth="55"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <TextBox x:Name="tbAttchName" TextWrapping="NoWrap" d:Text="Attach Name" Width="170" IsEnabled="False"/>
+                    <Button x:Name="btnAttach" Content="Attach" Margin="10,0,0,0" MinWidth="55"/>
+                </StackPanel>
+
+            </StackPanel >
+
+            <DockPanel Grid.Row="1" Margin="10,0,10,0">
+
+                <UniformGrid DockPanel.Dock="Top">
+                    <Button x:Name="btnClear" Content="Clear" Click="btnClear_Click" Margin="{DynamicResource BaseButtonMargin}"/>
+                </UniformGrid>
+
+                <ListBox x:Name="lbConsole" d:ItemsSource="{d:SampleData ItemCount=5}" />
+            </DockPanel>
+            
+            
+
+        </Grid>
+
+
+
+        <Grid  Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="8*"/>
+            </Grid.RowDefinitions>
+
+            <UniformGrid Grid.Row="0">
+                <Button x:Name="btnScriptPost" Content="Post" Margin="{DynamicResource BaseButtonMargin}" Click="btnScriptPost_Click"/>
+                <Button x:Name="btnScriptRun" Content="Run"  Margin="{DynamicResource BaseButtonMargin}" Click="btnScriptRun_Click"/>
+            </UniformGrid>
+
+
+            <TextBox x:Name="tbJSScript" Grid.Row="1" d:Text="RunJaveScript();">
+            </TextBox>
+
+        </Grid>
+
+    </Grid>
+</Window>
