@@ -116,6 +116,6 @@
   <Import Project="..\..\WingsCSharp\WingsCSharp\Common\Common.projitems" Label="Shared" />
   <Import Project="..\..\WingsCSharp\WingsCSharp\ConsoleHelper\ConsoleHelper.projitems" Label="Shared" />
   <Import Project="..\FridaDotNet\FridaDotNet.projitems" Label="Shared" />
-  <Import Project="..\..\..\..\Git_Projects\FridaSolo\FridaSolo\FridaScript\FridaScriptDotNet.projitems" Label="Shared" />
+  <Import Project="..\FridaScript\FridaScriptDotNet.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
