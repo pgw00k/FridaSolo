@@ -1,5 +1,5 @@
 ﻿
-import './FridaModule001'
+include('./FridaModule001');
 function module002(data)
 {
 	this.base = new module001();

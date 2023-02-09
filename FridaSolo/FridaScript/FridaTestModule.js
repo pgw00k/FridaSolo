@@ -1,4 +1,4 @@
-﻿import './FridaModule002'
+﻿include("./FridaModule002.js")
 function main() {
 	console.log("Script run.");
 	var m2 = new module002("module002 args");
