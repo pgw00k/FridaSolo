@@ -9,7 +9,7 @@ namespace FridaDotNet
 {
     public class FridaScriptLoader
     {
-        public static Regex RegexImport = new Regex(@"import\s+[""']{1}([\S\s]*?)(\.js)*['""]{1}[\n\r]+");
+        public static Regex RegexImport = new Regex(@"import\s+\(?[""']{1}([\S\s]*?)(\.js)*['""]{1}\)?[\n\r]+");
 
         public static Dictionary<string,FridaScriptLoader> Loaders = new Dictionary<string, FridaScriptLoader>();
 
