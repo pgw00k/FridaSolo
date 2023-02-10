@@ -41,7 +41,8 @@ namespace FridaCmd
 #if DEBUG
             Console.WriteLine(arg.ToString());
 #endif
-            FridaController controller = new FridaController(arg.ControllerArgument);
+            FridaCmdController controller = new FridaCmdController();
+            controller.StartWith(arg);
 
 
             string cmd = Console.ReadLine();

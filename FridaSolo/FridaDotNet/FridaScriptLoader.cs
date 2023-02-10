@@ -33,22 +33,28 @@ namespace FridaDotNet
         public List<FridaScriptLoader> SubScripts = new List<FridaScriptLoader>();
         public string SearchRoot;
 
+        protected string _FinalText;
+
         public string FinalText
         {
             get
             {
-                List<FridaScriptLoader> loaders = new List<FridaScriptLoader>();
-                GetAllSubScript(ref loaders);
-                loaders.Reverse();
-                var hs = loaders.ToHashSet();
-
-                string pre = "";
-                foreach (var sub in hs)
+                if(string.IsNullOrEmpty(_FinalText))
                 {
-                    pre += $"{sub.Text}\n";
-                }
+                    List<FridaScriptLoader> loaders = new List<FridaScriptLoader>();
+                    GetAllSubScript(ref loaders);
+                    loaders.Reverse();
+                    var hs = loaders.ToHashSet();
 
-                return pre + Text;
+                    string pre = "";
+                    foreach (var sub in hs)
+                    {
+                        pre += $"{sub.Text}\n";
+                    }
+
+                    _FinalText = pre + Text;
+                }
+                return _FinalText;
             }
         }
 

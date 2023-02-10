@@ -4,29 +4,13 @@ using System.IO;
 
 namespace FridaDotNet
 {
-    public class FridaArguments
-    {
-        public string DeviceID = "local";
-        public string TargetName = "";
-        public string ScriptPath = "";
-        public bool IsPause = true;
-        public bool IsNeedSpawn = true;
-
-        public override string ToString()
-        {
-            string info = $@"
-DeviceID={DeviceID};
-TargetName={TargetName};
-ScriptPath={ScriptPath};
-IsPause={IsPause};
-";
-            return info;
-        }
-    }
-
     public class FridaController
     {
+#if USE_EXT_JS
         public static string REPLDefinition = File.ReadAllText(@"FridaREPL.js");
+#else
+        public static string REPLDefinition = FridaJavaScriptHelper.RPC_Init_Definition;
+#endif
 
         /// <summary>
         /// 用来标识的ID号（设备ID+pid）
@@ -41,7 +25,14 @@ IsPause={IsPause};
         protected bool _IsHasScript = false;
         protected int _ScriptPostID = 0;
 
-        public FridaController(FridaArguments args)
+        protected FridaScriptLoader _FridaScriptLoader;
+
+        public virtual void StartWith<T>(T args)where T : IFridaArguments
+        {
+            Start(args);
+        }
+
+        public virtual void Start(IFridaArguments args)
         {
             TargetDevice = SingletonFridaManager.GetDeviceById(args.DeviceID);
             if(TargetDevice == null )
@@ -50,18 +41,8 @@ IsPause={IsPause};
             }
 
             // 考虑到文件读写需要时间，所以先把文件加载完
-            string FinalScript = "";
-            if (!string.IsNullOrEmpty(args.ScriptPath))
-            {
-#if DEBUG
-                Console.WriteLine($"Load script {args.ScriptPath}");
-#endif
-                var loader = FridaScriptLoader.LoadScript(args.ScriptPath);
-                var fileContext = loader.FinalText;
-                FinalScript = $"{REPLDefinition}{fileContext}";
-
-                _IsHasScript = true;
-            }
+            LoadScript(args.ScriptPath);
+            string FinalScript  = $"{REPLDefinition}{_FridaScriptLoader.FinalText}";
 
             if (args.IsNeedSpawn)
             {
@@ -85,11 +66,33 @@ IsPause={IsPause};
             CID = $"[{args.DeviceID}]{PID}";
         }
 
+        public virtual void LoadScript(string path)
+        {
+
+            if (!string.IsNullOrEmpty(path))
+            {
+#if DEBUG
+                Console.WriteLine($"Load script {path}");
+#endif
+                _FridaScriptLoader = FridaScriptLoader.LoadScript(path);
+                _IsHasScript = true;
+            }
+        }
+
         public virtual void ScriptMessage(object sender, ScriptMessageEventArgs e)
         {
-            var message = e.Message;
-            Console.WriteLine($"Message from Script: {message}");
-            //Console.WriteLine($"Message from Script: {e.PayLoad}");
+#if _CONSOLE
+            if (!string.IsNullOrEmpty(e.PayLoad))
+            {
+                Console.WriteLine(e.PayLoad);
+            }else
+            {
+                Console.WriteLine($"Message from Script: {e.Message}");
+            }
+#else
+            Console.WriteLine($"Message from Script: {e.Message}");
+#endif
+
             if (e.Data!=null)
             {
                 Console.WriteLine($"Data: {String.Join(",", e.Data)}");

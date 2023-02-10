@@ -9,9 +9,18 @@ using FridaDotNet;
 
 namespace FridaCmd
 {
-    internal class FridaCmdArgument:BaseCmdArgument
+    internal class FridaCmdArgument:BaseCmdArgument,IFridaArguments
     {
         public FridaArguments ControllerArgument = new FridaArguments();
+        public bool IsOutputFinalJS = false;
+        public string OutputFinalJSPath = "main.js";
+
+        public string DeviceID { get => ControllerArgument.DeviceID; set => ControllerArgument.DeviceID = value; }
+        public string TargetName { get => ControllerArgument.TargetName; set => ControllerArgument.TargetName = value; }
+        public string ScriptPath { get => ControllerArgument.ScriptPath; set => ControllerArgument.ScriptPath = value; }
+        public bool IsPause { get => ControllerArgument.IsPause; set => ((IFridaArguments)ControllerArgument).IsPause = value; }
+        public bool IsNeedSpawn { get => ControllerArgument.IsNeedSpawn; set => ControllerArgument.IsNeedSpawn = value; }
+
         public FridaCmdArgument(string[] args) : base(args)
         {
             OptionActions.Add("-devices", ListDevices);
@@ -20,6 +29,7 @@ namespace FridaCmd
             OptionActions.Add("-f", SetTargetName);
             OptionActions.Add("-l", SetScriptPath);
             OptionActions.Add("--no-pause", SetNoPause);
+            OptionActions.Add("-o", SetOutputJS);
         }
 
         public override string ToString()
@@ -60,6 +70,22 @@ namespace FridaCmd
         public virtual int SetNoPause(BaseCmdArgument self, string arg, int argIndex)
         {
             ControllerArgument.IsPause = false;
+            return 0;
+        }
+
+        public virtual int SetOutputJS(BaseCmdArgument self, string arg, int argIndex)
+        {
+            IsOutputFinalJS = true;
+            var newIndex = argIndex + 1;
+            if(newIndex<Arguments.Length)
+            {
+                string argNext = Arguments[newIndex];
+                if (!argNext.StartsWith("-"))
+                {
+                    OutputFinalJSPath = argNext;
+                }
+                return 1;
+            }
             return 0;
         }
     }

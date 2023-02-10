@@ -6,16 +6,7 @@ namespace FridaDotNet
 {
     public class FridaJavaScriptHelper
     {
-
-        public static string RPC_Init = @"
-_init();
-rpc.exports=this;
-";
-
         public static string RPC_Init_Definition = @"
-
-// Frida REPL script:
-
 function _init() {
     console.log('Frida REPL init');
     global.cm = null;
@@ -24,7 +15,7 @@ function _init() {
     const rpcExports = {
         fridaEvaluate(expression) {
             try {
-                console.log('fridaEvaluate ${expression}');
+                //console.log('fridaEvaluate ${expression}');
                 const result = (1, eval)(expression);
                 if (result instanceof ArrayBuffer) {
                     return result;
@@ -62,7 +53,6 @@ function _init() {
         },
         set(value) {
             for (const [k, v] of Object.entries(value)) {
-                console.log(k);
                 rpcExports[k] = v;
             }
         }
@@ -73,6 +63,9 @@ function _init() {
         console.log(message);
     }
 }
+
+_init();
+rpc.exports = this;
 ";
     }
 }
