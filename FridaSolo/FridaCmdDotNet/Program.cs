@@ -12,7 +12,7 @@ namespace FridaCmd
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
             Console.WriteLine($"FridaCmd v1.0.0 by Wings");
             if (args.Length <= 0)
@@ -41,10 +41,17 @@ namespace FridaCmd
 #if DEBUG
             Console.WriteLine(arg.ToString());
 #endif
+
             FridaCmdController controller = new FridaCmdController();
+            if (arg.IsOnlyOutputFile)
+            {
+                controller.IsOutputFinalJS = true;
+                controller.OutputJSPath = arg.OutputFinalJSPath;
+                controller.LoadScript(arg.ScriptPath);
+                return 100;
+            }
+
             controller.StartWith(arg);
-
-
             string cmd = Console.ReadLine();
             do
             {
@@ -55,6 +62,7 @@ namespace FridaCmd
             Console.WriteLine("Exit FridaCmd");
 
             Console.ReadKey();
+            return 1;
         }
     }
 }

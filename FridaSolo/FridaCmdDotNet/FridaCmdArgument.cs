@@ -14,7 +14,7 @@ namespace FridaCmd
         public FridaArguments ControllerArgument = new FridaArguments();
         public bool IsOutputFinalJS = false;
         public string OutputFinalJSPath = "main.js";
-
+        public bool IsOnlyOutputFile = false;
         public string DeviceID { get => ControllerArgument.DeviceID; set => ControllerArgument.DeviceID = value; }
         public string TargetName { get => ControllerArgument.TargetName; set => ControllerArgument.TargetName = value; }
         public string ScriptPath { get => ControllerArgument.ScriptPath; set => ControllerArgument.ScriptPath = value; }
@@ -30,6 +30,7 @@ namespace FridaCmd
             OptionActions.Add("-l", SetScriptPath);
             OptionActions.Add("--no-pause", SetNoPause);
             OptionActions.Add("-o", SetOutputJS);
+            OptionActions.Add("-o-o", SetOnlyOutptFile);
         }
 
         public override string ToString()
@@ -87,6 +88,12 @@ namespace FridaCmd
                 return 1;
             }
             return 0;
+        }
+
+        public virtual int SetOnlyOutptFile(BaseCmdArgument self, string arg, int argIndex)
+        {
+            IsOnlyOutputFile = true;
+            return SetOutputJS(self,arg,argIndex);
         }
     }
 }

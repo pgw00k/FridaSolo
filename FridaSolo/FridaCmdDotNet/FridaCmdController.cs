@@ -8,7 +8,7 @@ namespace FridaCmd
     public class FridaCmdController : FridaController
     {
         public bool IsOutputFinalJS = false;
-        public string OutputJSPath = "";
+        public string OutputJSPath = "main.js";
 
         public override void StartWith<T>(T args)
         {
