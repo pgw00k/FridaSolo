@@ -13,7 +13,25 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FridaCmd", "FridaCmdDotNet\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "frida-clr-wings", "..\frida-clr\frida-clr-wings.vcxproj", "{48AFFAE0-8789-44A6-8756-BC9EA344500C}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Common", "..\WingsCSharp\WingsCSharp\Common\Common.shproj", "{B88B16B1-5D0D-4FBB-B37B-93A8195013C4}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ConsoleHelper", "..\WingsCSharp\WingsCSharp\ConsoleHelper\ConsoleHelper.shproj", "{CC4B427B-870B-4475-9D46-849A748A4AE1}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		FridaDotNet\FridaDotNet.projitems*{48305e61-9142-4910-b7b1-3000dddc0649}*SharedItemsImports = 13
+		FridaDotNet\FridaDotNet.projitems*{5a6ae89c-6bca-416e-8b2c-9203d37d446c}*SharedItemsImports = 4
+		FridaScript\FridaScriptDotNet.projitems*{5a6ae89c-6bca-416e-8b2c-9203d37d446c}*SharedItemsImports = 4
+		..\WingsCSharp\WingsCSharp\Common\Common.projitems*{5a6ae89c-6bca-416e-8b2c-9203d37d446c}*SharedItemsImports = 4
+		..\WingsCSharp\WingsCSharp\ConsoleHelper\ConsoleHelper.projitems*{5a6ae89c-6bca-416e-8b2c-9203d37d446c}*SharedItemsImports = 4
+		FridaScript\FridaScriptDotNet.projitems*{a780b624-5312-4e42-83a6-485c99369f2c}*SharedItemsImports = 13
+		..\WingsCSharp\WingsCSharp\Common\Common.projitems*{b88b16b1-5d0d-4fbb-b37b-93a8195013c4}*SharedItemsImports = 13
+		FridaDotNet\FridaDotNet.projitems*{b9e50962-ab7a-484e-9bc8-f2ca30962b2b}*SharedItemsImports = 4
+		FridaScript\FridaScriptDotNet.projitems*{b9e50962-ab7a-484e-9bc8-f2ca30962b2b}*SharedItemsImports = 4
+		..\WingsCSharp\WingsCSharp\Common\Common.projitems*{b9e50962-ab7a-484e-9bc8-f2ca30962b2b}*SharedItemsImports = 4
+		..\WingsCSharp\WingsCSharp\ConsoleHelper\ConsoleHelper.projitems*{b9e50962-ab7a-484e-9bc8-f2ca30962b2b}*SharedItemsImports = 4
+		..\WingsCSharp\WingsCSharp\ConsoleHelper\ConsoleHelper.projitems*{cc4b427b-870b-4475-9d46-849a748a4ae1}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
@@ -65,17 +83,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A577A8C-26BD-49A5-8378-1E47413526F7}
-	EndGlobalSection
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		FridaDotNet\FridaDotNet.projitems*{48305e61-9142-4910-b7b1-3000dddc0649}*SharedItemsImports = 13
-		FridaDotNet\FridaDotNet.projitems*{5a6ae89c-6bca-416e-8b2c-9203d37d446c}*SharedItemsImports = 4
-		FridaScript\FridaScriptDotNet.projitems*{5a6ae89c-6bca-416e-8b2c-9203d37d446c}*SharedItemsImports = 4
-		..\WingsCSharp\WingsCSharp\Common\Common.projitems*{5a6ae89c-6bca-416e-8b2c-9203d37d446c}*SharedItemsImports = 4
-		..\WingsCSharp\WingsCSharp\ConsoleHelper\ConsoleHelper.projitems*{5a6ae89c-6bca-416e-8b2c-9203d37d446c}*SharedItemsImports = 4
-		FridaScript\FridaScriptDotNet.projitems*{a780b624-5312-4e42-83a6-485c99369f2c}*SharedItemsImports = 13
-		FridaDotNet\FridaDotNet.projitems*{b9e50962-ab7a-484e-9bc8-f2ca30962b2b}*SharedItemsImports = 4
-		FridaScript\FridaScriptDotNet.projitems*{b9e50962-ab7a-484e-9bc8-f2ca30962b2b}*SharedItemsImports = 4
-		..\WingsCSharp\WingsCSharp\Common\Common.projitems*{b9e50962-ab7a-484e-9bc8-f2ca30962b2b}*SharedItemsImports = 4
-		..\WingsCSharp\WingsCSharp\ConsoleHelper\ConsoleHelper.projitems*{b9e50962-ab7a-484e-9bc8-f2ca30962b2b}*SharedItemsImports = 4
 	EndGlobalSection
 EndGlobal

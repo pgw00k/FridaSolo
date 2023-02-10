@@ -9,6 +9,7 @@
     <Import_RootNamespace>FridaDotNet</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)FridaArguments.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FridaController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FridaJavaScriptHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FridaManager.cs" />
